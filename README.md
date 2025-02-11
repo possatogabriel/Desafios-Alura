@@ -8,7 +8,7 @@ Resolução dos desafios opcionais propostos durante as aulas da plataforma da A
 
 `Trabalhados durante os cursos:`
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" height = "40" alt = "Ícone JavaScript"/> 
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" height = "40" alt = "Ícone JavaScript"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" height = "40"/> 
 
 `Desenvolvido anteriormente pela Alura:`
 
@@ -18,4 +18,4 @@ Resolução dos desafios opcionais propostos durante as aulas da plataforma da A
 [<img loading="lazy" src="https://avatars.githubusercontent.com/u/136634888?v=4" width=80><br> <sub> Gabriel Possato </sub>](https://github.com/possatogabriel)
 <br>
 <br>
-<p align = "center"> <img alt="Static Badge" src="https://img.shields.io/badge/STATUS%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-em desenvolvimento-blue?style=for-the-badge"> <br/> <img src = "(1) Lógica de Programação - mergulhe em programação com JavaScript/img/alura1.png" height = "50"></p>
+<p align = "center"> <img alt="Static Badge" src="https://img.shields.io/badge/STATUS%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-em desenvolvimento-blue?style=for-the-badge"> <br/> <img src = "./img/alura1.png" height = "50"></p>
