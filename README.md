@@ -16,7 +16,7 @@ Resolução dos desafios opcionais propostos durante as aulas da Alura
 
 ## 🛠️ Como executar o programa (Java)
 
-- Passo 1: Utilizando a <a href = "https://www.jetbrains.com/pt-br/idea/">IDE do Intellij</a>, clique em **"Setup JDK"**
+- Passo 1: Utilizando a <a href = "https://www.jetbrains.com/pt-br/idea/">IDE do Intellij,</a> clique em **"Setup JDK"**
 <img src = "img/Passo1.jpg">
 
 - Passo 3: Clique em **"Download JDK"**
