@@ -30,7 +30,7 @@ Resolução dos desafios opcionais propostos durante as aulas da Alura
 <img src = "img/Passo3.jpg">
 
 - Passo 5: Após a instalação, procure a classe principal e execute o programa
-<img src = "img/Passo4.jpg">>
+<img src = "img/Passo4.jpg">
 
 ## 🙋 Autores
 [<img loading="lazy" src="https://avatars.githubusercontent.com/u/136634888?v=4" width=80><br> <sub> Gabriel Possato </sub>](https://github.com/possatogabriel)
