@@ -2,7 +2,7 @@
 
 ## 📰 Descrição
 
-Resolução dos desafios opcionais propostos durante as aulas da plataforma da Alura
+Resolução dos desafios opcionais propostos durante as aulas da Alura
 
 ## 💻 Tecnologias Utilizadas
 
@@ -14,11 +14,9 @@ Resolução dos desafios opcionais propostos durante as aulas da plataforma da A
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" height = "40" alt = "Ícone HTML"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" height = "40" alt = "Ícone CSS"/>
 
-## 💾 Como executar o programa (Java)
+## 🛠️ Como executar o programa (Java)
 
-- Passo 1: Utilize a IDE da sua preferência (por exemplo, a IDE do <a href = "https://www.jetbrains.com/pt-br/idea/"> Intellij, </a> como mostrado no exemplo) 
-
-- Passo 2: Clique em **"Setup JDK"**
+- Passo 1: Utilizando a <a href = "https://www.jetbrains.com/pt-br/idea/">IDE do Intellij</a>, clique em **"Setup JDK"**
 <img src = "img/Passo1.jpg">
 
 - Passo 3: Clique em **"Download JDK"**
@@ -27,7 +25,7 @@ Resolução dos desafios opcionais propostos durante as aulas da plataforma da A
 - Passo 4: Instale a versão mais recente
 <img src = "img/Passo3.jpg">
 
-- Passo 5: Após a instalação, procure a classe principal ***(ScreenmatchApplication)*** e execute o programa
+- Passo 5: Após a instalação, procure a classe principal ***(Main)*** e execute o programa
 <img src = "img/Passo4.jpg">
 
 ## 🙋 Autores
