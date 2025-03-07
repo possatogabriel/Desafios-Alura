@@ -14,7 +14,7 @@ Resolução dos desafios opcionais propostos durante as aulas da Alura
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" height = "40" alt = "Ícone HTML"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" height = "40" alt = "Ícone CSS"/>
 
-## 🛠️ Como executar o programa
+## 🛠️ Como executar o programa (Java)
 
 - Passo 1: Utilizando a <a href = "https://www.jetbrains.com/pt-br/idea/">IDE do Intellij,</a> clique em **"Setup SDK"**
 <img src = "img/Passo1.jpg">
