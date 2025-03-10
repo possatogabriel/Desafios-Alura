@@ -8,7 +8,7 @@ Resolução dos desafios opcionais propostos durante as aulas da Alura
 
 `Trabalhados durante os cursos:`
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" height = "40" alt = "Ícone JavaScript"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" height = "40"/> 
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" height = "40" alt = "Ícone JavaScript"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" height = "40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" height = "40"/>
 
 `Desenvolvido anteriormente pela Alura:`
 
