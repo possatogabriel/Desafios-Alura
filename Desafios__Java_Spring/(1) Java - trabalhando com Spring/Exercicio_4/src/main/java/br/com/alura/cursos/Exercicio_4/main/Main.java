@@ -1,5 +1,7 @@
 package br.com.alura.cursos.Exercicio_4.main;
 
+import br.com.alura.cursos.Exercicio_4.model.Produto_6ao9;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -16,6 +18,8 @@ public class Main {
         rodaExercicio4();
 
         rodaExercicio5();
+
+        rodaExercicio6ao9();
     }
 
     private void rodaExercicio1() {
@@ -82,5 +86,49 @@ public class Main {
 //
 //        System.out.println("(5) NÚMEROS PARES: " + pares);
 //        System.out.println("(5) NÚMEROS ÍMPARES: " + impares);
+    }
+
+    private void rodaExercicio6ao9() {
+        // 6. Dada a lista de produtos acima, agrupe-os por categoria em um Map<String, List<Produto>>.
+
+        List<Produto_6ao9> produto6ao9s = Arrays.asList(
+                new Produto_6ao9("Smartphone", 800.0, "Eletrônicos"),
+                new Produto_6ao9("Notebook", 1500.0, "Eletrônicos"),
+                new Produto_6ao9("Teclado", 200.0, "Eletrônicos"),
+                new Produto_6ao9("Cadeira", 300.0, "Móveis"),
+                new Produto_6ao9("Monitor", 900.0, "Eletrônicos"),
+                new Produto_6ao9("Mesa", 700.0, "Móveis")
+        );
+
+        var resultado1 = produto6ao9s.stream()
+                .collect(Collectors.groupingBy(Produto_6ao9::getCategoria));
+
+        System.out.println("(6) LISTA DIVIDIDA POR CATEGORIAS: " + resultado1);
+
+        // 7. Dada a lista de produtos acima, conte quantos produtos há em cada categoria e armazene em um Map<String, Long>.
+
+        var resultado2 = produto6ao9s.stream()
+                .collect(Collectors.groupingBy(Produto_6ao9::getCategoria, Collectors.counting()));
+
+        System.out.println("(7) QUANTIDADE DE PRODUTOS POR CATEGORIA: " + resultado2);
+
+        // 8. Dada a lista de produtos acima, encontre o produto mais caro de cada categoria e armazene o resultado em um Map<String, Optional<Produto>>.
+
+        var resultado3 = produto6ao9s.stream()
+                .collect(Collectors.groupingBy(Produto_6ao9::getCategoria, Collectors.maxBy(Comparator.comparingDouble(Produto_6ao9::getPreco))));
+
+        //        var resultado3 = produtos.stream()
+        //                .sorted(Comparator.comparing(Produto::getPreco))
+        //                .limit(1)
+        //                .collect(Collectors.toList());
+
+        System.out.println("(8) PRODUTO MAIS CARO DE CADA CATEGORIA: " + resultado3);
+
+        // 9. Dada a lista de produtos acima, calcule o total dos preços dos produtos em cada categoria e armazene o resultado em um Map<String, Double>.
+
+        var resultado4 = produto6ao9s.stream()
+                .collect(Collectors.groupingBy(Produto_6ao9::getCategoria, Collectors.summingDouble(Produto_6ao9::getPreco)));
+
+        System.out.println("(9) SOMA DOS PRODUTOS POR CATEGORIA: " + resultado4);
     }
 }
