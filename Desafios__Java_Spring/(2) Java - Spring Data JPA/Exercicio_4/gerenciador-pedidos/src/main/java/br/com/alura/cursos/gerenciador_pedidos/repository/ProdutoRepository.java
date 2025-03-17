@@ -15,4 +15,18 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
     List<Produto> findByPrecoLessThanEqual(double preco);
 
     List<Produto> findByNomeContaining(String nome);
+
+    List<Produto> findByCategoriaNomeOrderByPrecoAsc(String categoria);
+
+    List<Produto> findByCategoriaNomeOrderByPrecoDesc(String categoria);
+
+    List<Produto> countByCategoriaNome(String categoria);
+
+    List<Produto> countByPrecoGreaterThan(double preco);
+
+    List<Produto> findByPrecoLessThanAndNomeContaining(double preco, String nome);
+
+    List<Produto> findTop3ByPrecoDesc();
+
+    List<Produto> findTop1ByCategoriaNomeOrderByPrecoAsc(String categoria);
 }
