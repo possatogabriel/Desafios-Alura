@@ -20,7 +20,15 @@ public class Main {
         this.produtoRepositorio = produtoRepositorio;
     }
 
+    private void deletaDadosDoBanco() {
+        pedidoRepositorio.deleteAll();
+        categoriaRepositorio.deleteAll();
+        produtoRepositorio.deleteAll();
+    }
+
     public void rodaAplicacao() {
+        deletaDadosDoBanco();
+
         rodaExercicio6();
 
         rodaExercicio8();

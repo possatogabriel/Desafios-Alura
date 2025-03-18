@@ -3,6 +3,7 @@ package br.com.alura.cursos.gerenciador_pedidos.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "Pedidos")
@@ -13,8 +14,20 @@ public class Pedido {
 
     private LocalDate data;
 
-    public Pedido(LocalDate data) {
+    @ManyToMany
+    @JoinTable(
+            name = "pedido_produto",
+            joinColumns = @JoinColumn(name = "pedido_id"),
+            inverseJoinColumns = @JoinColumn(name = "produto_id")
+    )
+    private List<Produto> produtos;
+
+    public Pedido(LocalDate data, List<Produto> produtos) {
         this.data = data;
+        this.produtos = produtos;
+    }
+
+    public Pedido() {
     }
 
     public Long getId() {
@@ -31,5 +44,13 @@ public class Pedido {
 
     public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 }

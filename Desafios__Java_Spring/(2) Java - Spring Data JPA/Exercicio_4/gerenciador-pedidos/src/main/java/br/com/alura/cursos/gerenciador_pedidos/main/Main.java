@@ -2,6 +2,7 @@ package br.com.alura.cursos.gerenciador_pedidos.main;
 
 import br.com.alura.cursos.gerenciador_pedidos.model.Categoria;
 import br.com.alura.cursos.gerenciador_pedidos.model.Fornecedor;
+import br.com.alura.cursos.gerenciador_pedidos.model.Pedido;
 import br.com.alura.cursos.gerenciador_pedidos.model.Produto;
 import br.com.alura.cursos.gerenciador_pedidos.repository.CategoriaRepository;
 import br.com.alura.cursos.gerenciador_pedidos.repository.FornecedorRepository;
@@ -9,6 +10,7 @@ import br.com.alura.cursos.gerenciador_pedidos.repository.PedidoRepository;
 import br.com.alura.cursos.gerenciador_pedidos.repository.ProdutoRepository;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Component
@@ -25,7 +27,12 @@ public class Main {
         this.fornecedorRepositorio = fornecedorRepositorio;
     }
 
-    public void rodaAplicacao() {
+    private void criaNovoBanco() {
+        pedidoRepositorio.deleteAll();
+        produtoRepositorio.deleteAll();
+        categoriaRepositorio.deleteAll();
+        fornecedorRepositorio.deleteAll();
+
         Categoria eletronicos = new Categoria("Eletrônicos");
         Categoria moveis = new Categoria("Móveis");
         categoriaRepositorio.saveAll(List.of(eletronicos, moveis));
@@ -46,6 +53,16 @@ public class Main {
         moveis.setProdutos(List.of(produto3, produto4));
         produtoRepositorio.saveAll(List.of(produto1, produto2, produto3, produto4));
 
+        Pedido pedido1 = new Pedido(LocalDate.now(), List.of(produto1, produto3));
+        Pedido pedido2 = new Pedido(LocalDate.now().minusDays(1), List.of(produto2));
+        pedido1.setProdutos(List.of(produto1, produto3));
+        pedido2.setProdutos(List.of(produto2));
+        pedidoRepositorio.saveAll(List.of(pedido1, pedido2));
+    }
+
+    public void rodaAplicacao() {
+        criaNovoBanco();
+
         rodaExercicio1();
 
         rodaExercicio2();
@@ -55,89 +72,103 @@ public class Main {
         rodaExercicio4();
 
         rodaExercicio5();
+
+        rodaExercicio8();
+
+        rodaExercicio9();
+
+        rodaExercicio10();
+
+        rodaExercicio11();
+
+        rodaExercicio12();
+
+        rodaExercicio16();
+
+        rodaExercicio17();
     }
 
     private void rodaExercicio1() {
         // 1. Retorne todos os produtos com o nome exato fornecido.
 
         var produtos = produtoRepositorio.findByNome("Computador");
-        produtos.forEach(p -> System.out.println("(1) " + p));
+        produtos.forEach(p -> System.out.println("\n(1) " + p));
     }
 
     private void rodaExercicio2() {
         // 2. Retorne todos os produtos associados a uma categoria específica.
 
         var produtos = produtoRepositorio.findByCategoriaNome("Eletrônicos");
-        produtos.forEach(p -> System.out.println("(2) " + p));
+        produtos.forEach(p -> System.out.println("\n(2) " + p));
     }
 
     private void rodaExercicio3() {
         // 3. Retorne produtos com preço maior que o valor fornecido.
 
         var produtos = produtoRepositorio.findByPrecoGreaterThanEqual(650.00);
-        produtos.forEach(p -> System.out.println("(3) " + p));
+        produtos.forEach(p -> System.out.println("\n(3) " + p));
     }
 
     private void rodaExercicio4() {
         // 4. Retorne produtos com preço menor que o valor fornecido.
 
         var produtos = produtoRepositorio.findByPrecoLessThanEqual(600.00);
-        produtos.forEach(p -> System.out.println("(4) " + p));
+        produtos.forEach(p -> System.out.println("\n(4) " + p));
     }
 
     private void rodaExercicio5() {
         // 5. Retorne produtos cujo nome contenha o termo especificado.
 
         var produtos = produtoRepositorio.findByNomeContaining("Sof");
-        produtos.forEach(p -> System.out.println("(5) " + p));
+        produtos.forEach(p -> System.out.println("\n(5) " + p));
     }
 
     private void rodaExercicio8() {
         // 8. Retorne produtos de uma categoria ordenados pelo preço de forma crescente.
 
         var produtos = produtoRepositorio.findByCategoriaNomeOrderByPrecoAsc("Eletrônicos");
-        produtos.forEach(p -> System.out.println("(8) " + p));
+        produtos.forEach(p -> System.out.println("\n(8) " + p));
     }
 
     private void rodaExercicio9() {
         // 9. Retorne produtos de uma categoria ordenados pelo preço de forma decrecente.
 
         var produtos = produtoRepositorio.findByCategoriaNomeOrderByPrecoDesc("Eletrônicos");
-        produtos.forEach(p -> System.out.println("(9) " + p));
+        produtos.forEach(p -> System.out.println("\n(9) " + p));
     }
 
     private void rodaExercicio10() {
         // 10. Retorne a contagem de produtos em uma categoria específica
 
-        var produtos = produtoRepositorio.countByCategoriaNome("Eletrônicos");
-        System.out.println(produtos);
+        var produtos = produtoRepositorio.countByCategoriaNome("\nEletrônicos");
+        System.out.println("(10) " + produtos);
     }
 
     private void rodaExercicio11() {
         // 11. Retorne a contagem de produtos cujo preço seja maior que o valor fornecido.
 
         var produtos = produtoRepositorio.countByPrecoGreaterThan(500.00);
-        System.out.println(produtos);
+        System.out.println("\n(11) " + produtos);
     }
 
     private void rodaExercicio12() {
         // 12. Retorne produtos com preço menor que o valor fornecido ou cujo nome contenha o termo especificado.
 
         var produtos = produtoRepositorio.findByPrecoLessThanAndNomeContaining(1000.00, "Sof");
-        produtos.forEach(p -> System.out.println("(12) " + p));
+        produtos.forEach(p -> System.out.println("\n(12) " + p));
     }
 
     private void rodaExercicio16() {
         // 16. Retorne os três produtos mais caros.
 
-        var produtos = produtoRepositorio.findTop3ByPrecoDesc();
-        produtos.forEach(p -> System.out.println("(16) " + p));
+        var produtos = produtoRepositorio.findFirst3ByOrderByPrecoDesc();
+        produtos.forEach(p -> System.out.println("\n(16) " + p));
     }
 
     private void rodaExercicio17() {
         // 17. Retorne o produto mais barato de uma categoria
 
         var produtos = produtoRepositorio.findTop1ByCategoriaNomeOrderByPrecoAsc("Móveis");
-        produtos.forEach(p -> System.out.println("(17) " + p));
+        produtos.forEach(p -> System.out.println("\n(17) " + p));
     }
 }

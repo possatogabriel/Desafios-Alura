@@ -2,6 +2,8 @@ package br.com.alura.cursos.gerenciador_pedidos.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Produtos")
 public class Produto {
@@ -24,6 +26,9 @@ public class Produto {
     @ManyToOne
     @JoinColumn(name = "fornecedor_id")
     private Fornecedor_4 fornecedor;
+
+    @ManyToMany
+    List<Pedido> pedidos;
 
     public Produto(String nome, double preco, Categoria categoria, Fornecedor_4 fornecedor) {
         this.nome = nome;
@@ -73,5 +78,13 @@ public class Produto {
 
     public void setFornecedor(Fornecedor_4 fornecedor) {
         this.fornecedor = fornecedor;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 }

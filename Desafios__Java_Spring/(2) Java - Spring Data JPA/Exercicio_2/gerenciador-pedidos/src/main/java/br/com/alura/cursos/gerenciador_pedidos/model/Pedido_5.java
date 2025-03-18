@@ -19,6 +19,9 @@ public class Pedido_5 {
         this.data = data;
     }
 
+    public Pedido_5() {
+    }
+
     public Long getId() {
         return id;
     }
