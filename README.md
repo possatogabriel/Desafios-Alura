@@ -8,7 +8,7 @@ Resolução dos desafios opcionais propostos durante as aulas da Alura
 
 `Trabalhados durante os cursos:`
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" height = "40" alt = "Ícone JavaScript"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" height = "40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" height = "40"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" height = "40" alt = "Ícone JavaScript"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" height = "40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" height = "40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" height = "40"/>
 
 `Desenvolvido anteriormente pela Alura:`
 
@@ -37,10 +37,9 @@ Resolução dos desafios opcionais propostos durante as aulas da Alura
 
 * Passo 1: Para os **exercícios com integração ao banco de dados**, instale <a href = "https://www.enterprisedb.com/downloads/postgres-postgresql-downloads">a versão mais recente do Postgres</a>
 
-* Passo 2: Durante a instalação, **coloque a senha *"123" (ou outra senha fácil)*** 
+* Passo 2: Durante a instalação, **coloque a senha *"123" (ou outra senha fácil)***
+  * Você pode **desmarcar a opção de inicializar o "Stack Builder" no final da instalação**
 <img src = "img/Passo1.1.jpg">
-
-    * Você pode **desmarcar a opção de inicializar o "Stack Builder" no final da instalação**
 <img src = "img/Passo1.2.jpg">
 
 - Passo 3: Abra a aplicação e **dentro de *src/main,* copie o nome do banco de dados *(e mude a senha, caso tenha alterado)***
