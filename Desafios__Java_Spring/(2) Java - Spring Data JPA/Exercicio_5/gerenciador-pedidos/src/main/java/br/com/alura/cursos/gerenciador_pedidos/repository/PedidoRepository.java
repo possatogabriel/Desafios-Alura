@@ -8,13 +8,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
-    List<Pedido> findByDataIsNull();
-
-    List<Pedido> findByDataIsNotNull();
-
-    List<Pedido> findByDataAfter(LocalDate data);
-
-    List<Pedido> findByDataBefore(LocalDate data);
-
-    List<Pedido> findByDataBetween(LocalDate dataInicio, LocalDate dataFim);
+    @Query("SELECT p FROM Pedido p WHERE p.data BETWEEN %:dataInicio% AND %:dataFim%")
+    List<Pedido> achaPedidoPorDataEntre(LocalDate dataInicio, LocalDate dataFim);
 }

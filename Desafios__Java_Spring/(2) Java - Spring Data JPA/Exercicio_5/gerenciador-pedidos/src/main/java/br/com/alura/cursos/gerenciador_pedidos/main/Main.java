@@ -11,6 +11,7 @@ import br.com.alura.cursos.gerenciador_pedidos.repository.ProdutoRepository;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -84,136 +85,82 @@ public class Main {
         rodaExercicio10();
 
         rodaExercicio11();
-
-        rodaExercicio12();
-
-        rodaExercicio13();
-
-        rodaExercicio14();
-
-        rodaExercicio15();
-
-        rodaExercicio16();
-
-        rodaExercicio17();
     }
 
     private void rodaExercicio1() {
-        // 1. Retorne todos os produtos com o nome exato fornecido.
+        // 1. Crie uma consulta que retorne os produtos com preço maior que um valor
 
-        var produtos = produtoRepositorio.findByNome("Computador");
+        var produtos = produtoRepositorio.achaProdutosPorPrecoMaiorQue(500.00);
         produtos.forEach(p -> System.out.println("\n(1) " + p));
     }
 
     private void rodaExercicio2() {
-        // 2. Retorne todos os produtos associados a uma categoria específica.
+        // 2. Crie uma consulta que retorne os produtos ordenados pelo preço crescente.
 
-        var produtos = produtoRepositorio.findByCategoriaNome("Eletrônicos");
+        var produtos = produtoRepositorio.ordenaProdutosPorPrecoCrescente();
         produtos.forEach(p -> System.out.println("\n(2) " + p));
     }
 
     private void rodaExercicio3() {
-        // 3. Retorne produtos com preço maior que o valor fornecido.
+        // 3. Crie uma consulta que retorne os produtos ordenados pelo preço decrescente.
 
-        var produtos = produtoRepositorio.findByPrecoGreaterThanEqual(650.00);
+        var produtos = produtoRepositorio.ordenaProdutosPorPrecoDecrescente();
         produtos.forEach(p -> System.out.println("\n(3) " + p));
     }
 
     private void rodaExercicio4() {
-        // 4. Retorne produtos com preço menor que o valor fornecido.
+        // 4. Crie uma consulta que retorne os produtos que comecem com uma letra específica.
 
-        var produtos = produtoRepositorio.findByPrecoLessThanEqual(600.00);
+        var produtos = produtoRepositorio.achaProdutoPorNomeComecandoCom("T");
         produtos.forEach(p -> System.out.println("\n(4) " + p));
     }
 
     private void rodaExercicio5() {
-        // 5. Retorne produtos cujo nome contenha o termo especificado.
+        // 5. Crie uma consulta que retorne os pedidos feitos entre duas datas.
 
-        var produtos = produtoRepositorio.findByNomeContaining("Sof");
-        produtos.forEach(p -> System.out.println("\n(5) " + p));
+        var pedidos = pedidoRepositorio.achaPedidoPorDataEntre(LocalDate.of(2025, 01, 01), LocalDate.now());
+        pedidos.forEach(p -> System.out.println("\n(5) " + p));
     }
 
     private void rodaExercicio6() {
-        // 6. Retorne pedidos que ainda não possuem uma data de entrega.
+        // 6. Crie uma consulta que retorne a média de preços dos produtos.
 
-        var pedidos = pedidoRepositorio.findByDataIsNull();
-        pedidos.forEach(p -> System.out.println("\n(6) " + p));
+        var produtos = produtoRepositorio.calculaMediaDePrecos();
+        System.out.println("(6) " + produtos);
     }
 
     private void rodaExercicio7() {
-        // 7. Retorne pedidos com data de entrega preenchida.
+        // 7. Crie uma consulta que retorne o preço máximo de um produto em uma categoria
 
-        var pedidos = pedidoRepositorio.findByDataIsNotNull();
-        pedidos.forEach(p -> System.out.println("\n(7) " + p));
+        var produtos = produtoRepositorio.achaProdutoMaisCaroPorCategoria("Eletrônicos");
+        System.out.println("\n(7) " + produtos);
     }
 
     private void rodaExercicio8() {
-        // 8. Retorne produtos de uma categoria ordenados pelo preço de forma crescente.
+        // 8. Crie uma consulta para contar o número de produtos por categoria.
 
-        var produtos = produtoRepositorio.findByCategoriaNomeOrderByPrecoAsc("Eletrônicos");
-        produtos.forEach(p -> System.out.println("\n(8) " + p));
+        var produtos = produtoRepositorio.contaProdutoPorCategoria();
+        produtos.forEach(p -> System.out.println("\n(8) " + Arrays.toString(p)));
     }
 
     private void rodaExercicio9() {
-        // 9. Retorne produtos de uma categoria ordenados pelo preço de forma decrecente.
+        // 9. Crie uma consulta para filtrar categorias com mais de 10 produtos.
 
-        var produtos = produtoRepositorio.findByCategoriaNomeOrderByPrecoDesc("Eletrônicos");
-        produtos.forEach(p -> System.out.println("\n(9) " + p));
+        var produtos = produtoRepositorio.achaCategoriasComMaisDe(10);
+        produtos.forEach(p -> System.out.println("\n(9) " + Arrays.toString(p)));
     }
 
     private void rodaExercicio10() {
-        // 10. Retorne a contagem de produtos em uma categoria específica
+        // 10. Crie uma consulta para retornar os produtos filtrados por nome ou por categoria.
 
-        var produtos = produtoRepositorio.countByCategoriaNome("\nEletrônicos");
-        System.out.println("(10) " + produtos);
+        var produtos = produtoRepositorio.achaProdutoPorNomeOuPorCategoria("Móv");
+        produtos.forEach(p -> System.out.println("\n(10) " + p));
     }
 
     private void rodaExercicio11() {
-        // 11. Retorne a contagem de produtos cujo preço seja maior que o valor fornecido.
+        // 11. Crie uma consulta nativa para buscar os cinco produtos mais caros
 
-        var produtos = produtoRepositorio.countByPrecoGreaterThan(500.00);
-        System.out.println("\n(11) " + produtos);
-    }
-
-    private void rodaExercicio12() {
-        // 12. Retorne produtos com preço menor que o valor fornecido ou cujo nome contenha o termo especificado.
-
-        var produtos = produtoRepositorio.findByPrecoLessThanAndNomeContaining(1000.00, "Sof");
-        produtos.forEach(p -> System.out.println("\n(12) " + p));
-    }
-
-    private void rodaExercicio13() {
-        // 13. Retorne pedidos feitos após uma data específica.
-
-        var pedidos = pedidoRepositorio.findByDataAfter(LocalDate.of(2025, 03, 10));
-        pedidos.forEach(p -> System.out.println("\n(13) " + p));
-    }
-
-    private void rodaExercicio14() {
-        // 14. Retorne pedidos feitos antes de uma data específica.
-
-        var pedidos = pedidoRepositorio.findByDataBefore(LocalDate.of(2025, 02, 01));
-        pedidos.forEach(p -> System.out.println("\n(14) " + p));
-    }
-
-    private void rodaExercicio15() {
-        // 15. Retorne pedidos feitos em um intervalo de datas.
-
-        var pedidos = pedidoRepositorio.findByDataBetween(LocalDate.of(2024, 12, 31), LocalDate.now());
-        pedidos.forEach(p -> System.out.println("\n(15) " + p));
-    }
-
-    private void rodaExercicio16() {
-        // 16. Retorne os três produtos mais caros.
-
-        var produtos = produtoRepositorio.findFirst3ByOrderByPrecoDesc();
-        produtos.forEach(p -> System.out.println("\n(16) " + p));
-    }
-
-    private void rodaExercicio17() {
-        // 17. Retorne o produto mais barato de uma categoria
-
-        var produtos = produtoRepositorio.findTop1ByCategoriaNomeOrderByPrecoAsc("Móveis");
-        produtos.forEach(p -> System.out.println("\n(17) " + p));
+        var produtos = produtoRepositorio.achaTop5ProdutosMaisCaros();
+        produtos.forEach(p -> System.out.println("\n(11) " + p));
     }
 }
